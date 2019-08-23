@@ -7,7 +7,27 @@
 //
 
 import UIKit
+import Foundation
 
-class Singleton: NSObject {
 
-}
+    struct Userdefaultss {
+        //private let shared = Userdefaultss()
+        
+        private let def = UserDefaults.standard
+        
+         func set (object:String!, key:String!){
+            def.set(object, forKey:key)
+            def.synchronize()
+        }
+        
+         func get (key:String!) -> String{
+            let objectt = def.object(forKey: key) as? String
+            return objectt!
+        }
+
+
+        private init() {
+        }
+    }
+    
+

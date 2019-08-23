@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var posts: [Post] = []
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        IQKeyboardManager.shared.enable = true
+        APIManager.getPost { (error, posts) in
+            if  let error = error{
+                //self.showAlert(title: "sorry",message: error)
+            }else if let posts = posts{
+               self.posts = posts
+                //law feh table view delw2ty kona 7nady 3aleha tany 3shan ta5od data lama tegy w y3rdha
+                print(posts.first?.body)
+            }
+        }
         return true
     }
 

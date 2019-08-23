@@ -8,6 +8,13 @@
 
 import UIKit
 
-class TrimString: NSObject {
-
+extension String {
+    
+    func isBlank() -> String {
+        guard !self.isEmpty else {
+            return "empty"
+        }
+        let result = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        return result
+    }
 }

@@ -11,4 +11,8 @@ import Foundation
 struct UserDefaultsKeys {
     static let email = "email"
     static let password = "password"
+    static let name = "name"
+    static let address = "address"
+    static let image = "image"
+
 }
